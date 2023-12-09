@@ -104,16 +104,11 @@ const styles = StyleSheet.create({
   image: {
     borderRadius: 50,
     width: '100%',
-    height: '75%',
+    height: '77%',
   },
   imageItem: {
     width: screenWidth / 4 - 5,
     height: screenWidth / 4 - 5,
     margin: 1,
-  },
-  button: {
-    flexWrap: 'nowrap',
-    backgroundColor: 'blue',
-    height: 50,
   },
 });
