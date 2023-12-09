@@ -1,5 +1,13 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Image, ScrollView, Dimensions } from 'react-native';
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  View,
+  Image,
+  ScrollView,
+  Dimensions,
+  Text,
+} from 'react-native';
+import {Button, TextInput} from 'react-native-paper';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -22,33 +30,90 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollContent}>
-          {images.map((imageUrl, index) => (
-            <Image key={index} source={{ uri: imageUrl }} style={styles.imageItem} />
-          ))}
-        </ScrollView>
+        <View style={styles.section1}>
+          <View style={[styles.subsectionimg, {flex: 1}]}>
+            <View style={styles.image}>
+              <Image
+                source={require('./images/profile.png')}
+                style={styles.image}
+              />
+            </View>
+          </View>
+          <View style={[styles.subsection, {flex: 1}]}>
+            <Text>Posts</Text>
+            <Text>20</Text>
+          </View>
+          <View style={[styles.subsection, {flex: 1}]}>
+            <Text>Followers</Text>
+            <Text>110304</Text>
+          </View>
+
+          <View style={[styles.subsection, {flex: 1}]}>
+            <Text>Following</Text>
+            <Text>1103</Text>
+          </View>
+        </View>
+        <Button mode="contained-tonal">Edit profile</Button>
+        <View style={styles.section2}>
+          <ScrollView contentContainerStyle={styles.section2}>
+            {images.map((imageUrl, index) => (
+              <Image
+                key={index}
+                source={{uri: imageUrl}}
+                style={styles.imageItem}
+              />
+            ))}
+          </ScrollView>
+        </View>
+        <View style={styles.section3}>
+          {/* Aquí puedes agregar mas contenido o un footer */}
+        </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    flexDirection: 'column',
+  },
+  section1: {
+    flex: 0.5,
+    flexDirection: 'row',
+  },
+  subsectionimg: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+  },
+  subsection: {
+    flex: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 200,
   },
-  scrollContent: {
+  section2: {
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    padding: 5,
+    padding: 1,
+  },
+  section3: {
+    flex: 0.5,
+  },
+  image: {
+    borderRadius: 50,
+    width: '100%',
+    height: '75%',
   },
   imageItem: {
     width: screenWidth / 4 - 5,
     height: screenWidth / 4 - 5,
     margin: 1,
+  },
+  button: {
+    flexWrap: 'nowrap',
+    backgroundColor: 'blue',
+    height: 50,
   },
 });
