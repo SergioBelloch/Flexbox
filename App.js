@@ -7,7 +7,7 @@ import {
   Dimensions,
   Text,
 } from 'react-native';
-import {Button, TextInput} from 'react-native-paper';
+import {Button} from 'react-native-paper';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -110,10 +110,5 @@ const styles = StyleSheet.create({
     width: screenWidth / 4 - 5,
     height: screenWidth / 4 - 5,
     margin: 1,
-  },
-  button: {
-    flexWrap: 'nowrap',
-    backgroundColor: 'blue',
-    height: 50,
   },
 });
